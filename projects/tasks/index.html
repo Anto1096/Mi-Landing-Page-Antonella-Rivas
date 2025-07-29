@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Tareas Avanzada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="task-app-container">
+        <header class="app-header">
+            <h1>Mis Tareas</h1>
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="Añadir nueva tarea y presionar Enter" required>
+            </form>
+        </header>
+        
+        <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="active">Activas</button>
+            <button class="filter-btn" data-filter="completed">Completadas</button>
+        </div>
+
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Alarm Modal -->
+    <div id="alarm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Fijar Alarma para Tarea</h2>
+            <p id="alarm-task-text"></p>
+            <input type="datetime-local" id="alarm-datetime-input">
+            <div class="modal-buttons">
+                <button id="set-alarm-btn">Fijar</button>
+                <button id="cancel-alarm-btn">Cancelar</button>
+                <button id="remove-alarm-btn" class="danger">Quitar Alarma</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

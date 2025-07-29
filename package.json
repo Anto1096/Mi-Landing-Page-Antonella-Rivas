@@ -1,0 +1,51 @@
+{
+  "name": "portafolio-antonella-rivas",
+  "version": "1.0.0",
+  "description": "Landing page profesional para Antonella Rivas - Desarrolladora Frontend Junior",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o dist/styles/main.min.css styles/main.css styles/components.css styles/responsive.css",
+    "minify-js": "uglifyjs js/main.js js/form-validation.js js/animations.js -o dist/js/main.min.js",
+    "optimize-images": "imagemin assets/images/* --out-dir=dist/assets/images",
+    "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "validate-html": "html-validate index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "developer",
+    "landing-page",
+    "responsive",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Antonella Rivas",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "clean-css-cli": "^5.6.2",
+    "uglify-js": "^3.17.4",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "lighthouse": "^10.4.0",
+    "html-validate": "^8.7.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonellarivas/portafolio-personal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antonellarivas/portafolio-personal/issues"
+  },
+  "homepage": "https://antonellarivas.github.io/portafolio-personal"
+}

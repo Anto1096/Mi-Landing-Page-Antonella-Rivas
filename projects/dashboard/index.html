@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">Admin</div>
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
+                <li><a href="#"><i class="fas fa-store"></i> Ventas</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Reportes</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h2>Resumen del Dashboard</h2>
+            </header>
+            <div class="stats-cards">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="card-info">
+                        <h3>Ventas Totales</h3>
+                        <p id="total-sales" data-target="15480">$0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="card-info">
+                        <h3>Nuevos Usuarios</h3>
+                        <p id="new-users" data-target="245">0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="card-info">
+                        <h3>Pedidos Hoy</h3>
+                        <p id="today-orders" data-target="75">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panels-container">
+                <div class="main-panel chart-panel">
+                    <h3>Ventas Mensuales</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="main-panel activity-panel">
+                    <h3>Actividad Reciente</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Cliente</th>
+                                <th>Monto</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1024</td>
+                                <td>Juan Pérez</td>
+                                <td>$150.00</td>
+                                <td><span class="status completed">Completado</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1025</td>
+                                <td>Ana Gómez</td>
+                                <td>$85.50</td>
+                                <td><span class="status pending">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>#1026</td>
+                                <td>Luis Castro</td>
+                                <td>$230.00</td>
+                                <td><span class="status completed">Completado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
