@@ -62,16 +62,19 @@ portafolio-personal/
 ### 📝 Personalización
 
 #### Información personal
+
 - Editar el contenido del archivo `index.html`
 - Actualizar meta tags en el `<head>`
 - Modificar enlaces de redes sociales
 
 #### Estilos
+
 - Cambiar colores en las variables CSS de `main.css`
 - Ajustar tipografías y espaciados
 - Personalizar animaciones
 
 #### Imágenes
+
 - Reemplazar `profile-placeholder.jpg` por tu foto
 - Agregar capturas de tus proyectos
 - Actualizar favicon
@@ -79,11 +82,13 @@ portafolio-personal/
 ### 🎯 Configuración del formulario
 
 El formulario de contacto incluye:
+
 - Validación en tiempo real
 - Mensajes de error personalizados
 - Envío simulado (requiere backend)
 
 Para conectar con un backend real:
+
 1. Modificar la función `simulateFormSubmission` en `form-validation.js`
 2. Agregar endpoint de tu servidor
 3. Configurar headers y método HTTP
@@ -113,12 +118,12 @@ Para conectar con un backend real:
 ### 🎨 Paleta de colores
 
 ```css
---primary-color: #667eea;     /* Azul principal */
---secondary-color: #764ba2;   /* Púrpura secundario */
---accent-color: #f093fb;      /* Rosa accent */
---text-primary: #2d3748;      /* Texto principal */
---text-secondary: #4a5568;    /* Texto secundario */
---background-light: #f7fafc;  /* Fondo claro */
+--primary-color: #667eea; /* Azul principal */
+--secondary-color: #764ba2; /* Púrpura secundario */
+--accent-color: #f093fb; /* Rosa accent */
+--text-primary: #2d3748; /* Texto principal */
+--text-secondary: #4a5568; /* Texto secundario */
+--background-light: #f7fafc; /* Fondo claro */
 ```
 
 ### 📈 Próximas mejoras
@@ -133,6 +138,7 @@ Para conectar con un backend real:
 ### 🤝 Contribuciones
 
 Este es un proyecto personal, pero las sugerencias son bienvenidas:
+
 1. Fork el proyecto
 2. Crear una rama para tu mejora
 3. Enviar un pull request
@@ -140,6 +146,8 @@ Este es un proyecto personal, pero las sugerencias son bienvenidas:
 ### 📧 Contacto
 
 **Antonella Rivas**
+
+- Sitio web: [milanding.netlify.app](https://milanding.netlify.app/)
 - Email: antonella.rivas@email.com
 - LinkedIn: [linkedin.com/in/antonellarivas](https://linkedin.com/in/antonellarivas)
 - GitHub: [github.com/antonellarivas](https://github.com/antonellarivas)
