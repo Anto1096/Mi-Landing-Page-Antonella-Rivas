@@ -148,6 +148,11 @@
   .hero {
     min-height: 90vh;
     padding-top: 100px;
+    padding-bottom: 110px;
+  }
+
+  .hero-scroll {
+    bottom: 24px;
   }
 
   .hero-avatar {
@@ -306,11 +311,18 @@
     font-size: var(--font-size-lg);
   }
 
-
   /* Hero Section */
   .hero-avatar {
     width: 180px;
     height: 180px;
+  }
+
+  .hero {
+    padding-bottom: 100px;
+  }
+
+  .hero-scroll {
+    bottom: 18px;
   }
 
   .hero-title {
