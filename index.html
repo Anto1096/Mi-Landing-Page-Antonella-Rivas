@@ -152,19 +152,28 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
+        background-color: rgba(255, 255, 255, 0.22);
+        color: var(--primary-color);
+        border: 1px solid rgba(102, 126, 234, 0.35);
         width: 45px;
         height: 45px;
         border-radius: 50%;
         cursor: pointer;
         font-size: 1.2rem;
         z-index: 10;
-        transition: background-color 0.3s;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.12);
+        transition:
+          background-color 0.3s,
+          border-color 0.3s,
+          transform 0.3s,
+          box-shadow 0.3s;
       }
       .slider-btn:hover {
-        background-color: var(--accent-color);
+        background-color: rgba(255, 255, 255, 0.4);
+        border-color: rgba(102, 126, 234, 0.55);
+        box-shadow: 0 6px 18px rgba(102, 126, 234, 0.2);
       }
       .slider-btn.prev {
         left: 10px;
@@ -509,9 +518,6 @@
             <div class="project-image">
               <img
                 src="https://images.pexels.com/photos/1050244/pexels-photo-1050244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="E-commerce Landing"
-                class="project-img"
-                loading="lazy"
               />
               <div class="project-overlay">
                 <div class="project-links">
