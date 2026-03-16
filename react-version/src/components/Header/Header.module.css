@@ -300,12 +300,12 @@
   }
 
   .dropdownContent {
-    top: auto;
-    bottom: 100%;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: var(--spacing-sm);
+    top: calc(100% + var(--spacing-sm));
+    bottom: auto;
+    right: 0;
+    left: auto;
+    transform: none;
+    margin-bottom: 0;
     min-width: 140px;
     z-index: 102;
   }
