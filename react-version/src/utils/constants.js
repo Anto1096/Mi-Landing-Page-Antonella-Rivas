@@ -25,8 +25,8 @@ export const PROJECTS = [
     title: "projects.ecommerce.title",
     description: "projects.ecommerce.description",
     image:
-      "https://images.pexels.com/photos/1050244/pexels-photo-1050244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    demoLink: "/projects/ecommerce/index.html",
+      "https://images.pexels.com/photos/11297769/pexels-photo-11297769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    demoLink: "https://commercetienda.netlify.app/",
     githubLink: "https://github.com/Anto1096/E-Commerce",
     tags: ["HTML", "CSS", "JavaScript"],
   },
