@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize all modules
+  initThemeToggle();
   initNavigation();
   initScrollEffects();
   initAnimations();
@@ -17,6 +18,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("Portfolio loaded successfully! 🚀");
 });
+
+function initThemeToggle() {
+  const themeToggle = document.getElementById("theme-toggle");
+
+  if (!themeToggle) {
+    return;
+  }
+
+  const themeIcon = themeToggle.querySelector("i");
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+
+    const isDark = theme === "dark";
+    themeIcon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Activar modo claro" : "Activar modo oscuro",
+    );
+    themeToggle.setAttribute(
+      "title",
+      isDark ? "Activar modo claro" : "Activar modo oscuro",
+    );
+  }
+
+  const savedTheme = localStorage.getItem("theme") || "light";
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener("click", () => {
+    const currentTheme =
+      document.documentElement.getAttribute("data-theme") || "light";
+    applyTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+}
 
 // ========================================
 // NAVIGATION FUNCTIONALITY
@@ -85,6 +121,7 @@ function initMobileMenu() {
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
+  const navMenuActions = document.querySelectorAll(".nav-github-btn");
 
   function toggleMenu() {
     hamburger.classList.toggle("active");
@@ -121,6 +158,10 @@ function initMobileMenu() {
 
   // Close menu when clicking on a link
   navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  navMenuActions.forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
 

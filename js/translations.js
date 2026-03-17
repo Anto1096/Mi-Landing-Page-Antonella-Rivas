@@ -6,6 +6,7 @@ const translations = {
     navServices: "Services",
     navProjects: "Projects",
     navContact: "Contact",
+    navGithub: "View GitHub",
     heroGreeting: "Hi, I'm",
     heroSubtitle: "Junior Frontend Developer",
     heroDescription:
@@ -88,6 +89,7 @@ const translations = {
     navServices: "Servicios",
     navProjects: "Proyectos",
     navContact: "Contacto",
+    navGithub: "Ver GitHub",
     heroGreeting: "Hola, soy",
     heroSubtitle: "Desarrolladora Frontend Junior",
     heroDescription:
@@ -169,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const langEsBtn = document.getElementById("lang-es");
   const langEnBtn = document.getElementById("lang-en");
   const langText = document.getElementById("lang-text");
+  const langBtn = document.getElementById("lang-btn");
+  const langSwitcher = langBtn?.closest(".language-switcher");
 
   const setLanguage = (language) => {
     const elements = document.querySelectorAll("[data-key]");
@@ -181,10 +185,27 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.lang = language;
     localStorage.setItem("language", language);
     langText.textContent = language.toUpperCase();
+    langSwitcher?.classList.remove("open");
+    langBtn?.setAttribute("aria-expanded", "false");
   };
 
   langEsBtn.addEventListener("click", () => setLanguage("es"));
   langEnBtn.addEventListener("click", () => setLanguage("en"));
+
+  langBtn?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = langSwitcher?.classList.toggle("open");
+    langBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  langSwitcher?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  document.addEventListener("click", () => {
+    langSwitcher?.classList.remove("open");
+    langBtn?.setAttribute("aria-expanded", "false");
+  });
 
   // Load saved language or default to Spanish
   const savedLanguage = localStorage.getItem("language") || "es";

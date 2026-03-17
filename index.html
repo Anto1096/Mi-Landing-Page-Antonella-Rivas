@@ -74,48 +74,61 @@
       /* Language switcher styles */
       .language-switcher {
         position: relative;
-        margin-left: 1rem;
       }
       .language-switcher button {
-        background: none;
+        background: rgba(255, 255, 255, 0.72);
         border: 1px solid var(--primary-color);
         color: var(--primary-color);
         padding: 0.5rem 1rem;
-        border-radius: 5px;
+        border-radius: 999px;
         cursor: pointer;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.12);
+        transition: var(--transition-medium);
+      }
+      .language-switcher button:hover {
+        background: var(--primary-color);
+        color: white;
       }
       .language-switcher .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #fff;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background-color: var(--background-card);
         min-width: 100px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-        border-radius: 5px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
       }
       .language-switcher .dropdown-content a {
-        color: black;
+        color: var(--text-primary);
         padding: 12px 16px;
         text-decoration: none;
         display: block;
         cursor: pointer;
       }
       .language-switcher .dropdown-content a:hover {
-        background-color: #f1f1f1;
+        background-color: var(--background-light);
       }
-      .language-switcher:hover .dropdown-content {
+      .language-switcher.open .dropdown-content {
         display: block;
       }
 
       /* Glassmorphism Navbar */
       .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.88);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(102, 126, 234, 0.12);
+      }
+      [data-theme="dark"] .navbar.scrolled {
+        background: rgba(26, 32, 44, 0.88);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
       /* Style for Font Awesome icon in skill card */
       .skill-icon i {
@@ -128,13 +141,16 @@
         position: relative;
         max-width: 800px;
         margin: 0 auto;
+        padding: 0 3.5rem;
         overflow: hidden;
       }
       .testimonials-grid {
         display: flex;
+        gap: 0;
         transition: transform 0.5s ease-in-out;
       }
       .testimonial-card {
+        flex: 0 0 100%;
         min-width: 100%;
         box-sizing: border-box;
         padding: 2rem;
@@ -176,11 +192,38 @@
         box-shadow: 0 6px 18px rgba(102, 126, 234, 0.2);
       }
       .slider-btn.prev {
-        left: 10px;
+        left: 0.5rem;
       } /* Corregido para estar dentro del contenedor */
       .slider-btn.next {
-        right: 10px;
+        right: 0.5rem;
       } /* Corregido para estar dentro del contenedor */
+
+      @media (max-width: 768px) {
+        .testimonials-slider-container {
+          padding: 0 0.75rem;
+        }
+
+        .testimonial-card {
+          padding: 1.25rem;
+        }
+
+        .slider-btn {
+          width: 38px;
+          height: 38px;
+          font-size: 1rem;
+          top: auto;
+          bottom: 0.5rem;
+          transform: none;
+        }
+
+        .slider-btn.prev {
+          left: 0.4rem;
+        }
+
+        .slider-btn.next {
+          right: 0.4rem;
+        }
+      }
 
       /* Form loading states */
       .btn.loading {
@@ -244,22 +287,55 @@
               >Contacto</a
             >
           </li>
+          <li class="nav-item nav-social-mobile">
+            <a
+              href="https://github.com/Anto1096"
+              class="nav-github-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver perfil de GitHub"
+            >
+              <i class="fa-brands fa-github"></i>
+              <span data-key="navGithub">Ver GitHub</span>
+            </a>
+          </li>
         </ul>
-        <!-- Language Switcher -->
-        <div class="language-switcher">
-          <button type="button" id="lang-btn">
-            <i class="fas fa-globe"></i>
-            <span id="lang-text">ES</span>
+        <a
+          href="https://github.com/Anto1096"
+          class="nav-github-btn nav-github-desktop"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver perfil de GitHub"
+        >
+          <i class="fa-brands fa-github"></i>
+          <span data-key="navGithub">Ver GitHub</span>
+        </a>
+        <div class="nav-actions">
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Activar modo oscuro"
+            title="Activar modo oscuro"
+          >
+            <i class="fas fa-moon"></i>
           </button>
-          <div class="dropdown-content">
-            <a id="lang-es">Español</a>
-            <a id="lang-en">English</a>
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button type="button" id="lang-btn">
+              <i class="fas fa-globe"></i>
+              <span id="lang-text">ES</span>
+            </button>
+            <div class="dropdown-content">
+              <a id="lang-es">Español</a>
+              <a id="lang-en">English</a>
+            </div>
           </div>
-        </div>
-        <div class="hamburger" id="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </div>
       </div>
     </nav>
@@ -674,12 +750,11 @@
         <div class="testimonials-slider-container">
           <div class="testimonials-grid">
             <div class="testimonial-card">
-              <i class="fas fa-quote-left quote-icon"></i>
               <div class="testimonial-content">
                 <p class="testimonial-text" data-key="testimonial1Text">
-                  "Antonella demostró gran profesionalismo y atención al
-                  detalle. Su código es limpio y sus interfaces son intuitivas.
-                  Definitivamente recomendaría su trabajo."
+                  Antonella demostró gran profesionalismo y atención al detalle.
+                  Su código es limpio y sus interfaces son intuitivas.
+                  Definitivamente recomendaría su trabajo.
                 </p>
               </div>
               <div class="testimonial-author">
@@ -700,7 +775,6 @@
               </div>
             </div>
             <div class="testimonial-card">
-              <i class="fas fa-quote-left quote-icon"></i>
               <div class="testimonial-content">
                 <p class="testimonial-text" data-key="testimonial2Text">
                   "Trabajar con Antonella fue una experiencia excelente. Su
