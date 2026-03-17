@@ -126,6 +126,10 @@ function initMobileMenu() {
   function toggleMenu() {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
+    hamburger.setAttribute(
+      "aria-expanded",
+      navMenu.classList.contains("active") ? "true" : "false",
+    );
 
     // Prevent body scrolling when menu is open
     document.body.style.overflow = navMenu.classList.contains("active")
@@ -136,6 +140,7 @@ function initMobileMenu() {
   function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
 
