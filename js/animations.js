@@ -3,23 +3,7 @@
 // ========================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const sr = ScrollReveal({
-    origin: "bottom",
-    distance: "60px",
-    duration: 1000,
-    delay: 200,
-    reset: false, // Animations repeat only once
-  });
-
-  // Animate Hero Section elements
-  sr.reveal(".hero-title", { origin: "top", distance: "30px" });
-  sr.reveal(".hero-subtitle", { delay: 400 });
-  sr.reveal(".hero-description", { delay: 500 });
-  sr.reveal(".hero-buttons", { delay: 600 });
-  sr.reveal(".hero-image", { origin: "right", distance: "100px", delay: 700 });
-
-  // Animate all other sections
-  sr.reveal(".about, .skills, .services, .projects, .testimonials, .contact");
+  initScrollReveal();
 
   // Testimonials Slider Logic
   const testimonialsGrid = document.querySelector(".testimonials-grid");
@@ -45,6 +29,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     prevBtn.addEventListener("click", () => {
+
+function initScrollReveal() {
+  const revealTargets = [
+    [".hero-title", { origin: "top", distance: "30px" }],
+    [".hero-subtitle", { delay: 400 }],
+    [".hero-description", { delay: 500 }],
+    [".hero-buttons", { delay: 600 }],
+    [".hero-image", { origin: "right", distance: "100px", delay: 700 }],
+    [".about, .skills, .services, .projects, .testimonials, .contact", {}],
+  ];
+
+  const bootReveal = () => {
+    if (typeof ScrollReveal === "undefined") {
+      return;
+    }
+
+    const sr = ScrollReveal({
+      origin: "bottom",
+      distance: "60px",
+      duration: 1000,
+      delay: 200,
+      reset: false,
+    });
+
+    revealTargets.forEach(([selector, options]) => {
+      sr.reveal(selector, options);
+    });
+  };
+
+  const loadRevealScript = () => {
+    if (typeof ScrollReveal !== "undefined") {
+      bootReveal();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/scrollreveal";
+    script.async = true;
+    script.onload = bootReveal;
+    document.body.appendChild(script);
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(loadRevealScript, { timeout: 1200 });
+  } else {
+    window.addEventListener("load", loadRevealScript, { once: true });
+  }
+}
       currentIndex =
         currentIndex > 0 ? currentIndex - 1 : testimonials.length - 1;
       showTestimonial(currentIndex);

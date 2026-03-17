@@ -69,9 +69,22 @@
 
     <!-- Font Awesome for icons -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+    </noscript>
 
     <!-- Custom styles for project card alignment -->
     <style>
@@ -1009,21 +1022,26 @@
     </script>
 
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      const measurementId = "GA_MEASUREMENT_ID";
+
+      if (measurementId !== "GA_MEASUREMENT_ID") {
+        const analyticsScript = document.createElement("script");
+        analyticsScript.async = true;
+        analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+        document.head.appendChild(analyticsScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", measurementId);
       }
-      gtag("js", new Date());
-      gtag("config", "GA_MEASUREMENT_ID");
     </script>
 
     <!-- JavaScript -->
-    <script defer src="https://unpkg.com/scrollreveal"></script>
     <script defer src="./js/main.js"></script>
     <script defer src="./js/form-validation.js"></script>
     <script defer src="./js/animations.js"></script>
