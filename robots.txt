@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://milanding.netlify.app/sitemap.xml
